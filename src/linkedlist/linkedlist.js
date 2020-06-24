@@ -106,4 +106,16 @@ class _Node {
   }
 }
 
-module.exports = { LinkedList, _Node };
+function makeArray(ll) {
+  let curr = ll.head;
+  let result = [];
+
+  while (curr.next !== null) {
+    result.push(curr.value);
+    curr = curr.next;
+  }
+  result.push(curr.value);
+  return result;
+}
+
+module.exports = { LinkedList, _Node, makeArray };
