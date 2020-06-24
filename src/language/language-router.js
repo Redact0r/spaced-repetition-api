@@ -97,7 +97,7 @@ languageRouter.post("/guess", parser, async (req, res, next) => {
         curr.next = answer;
         list.head = list.head.next;
         curr.value.next = answer.value.id;
-        answer.value.next = answer.next.value.id;
+        answer.value.next = null;
       } else {
         answer.next = curr.next;
         curr.next = answer;
@@ -114,7 +114,7 @@ languageRouter.post("/guess", parser, async (req, res, next) => {
       );
       res.status(200).json({
         nextWord: list.head.value.original,
-        totalScore: req.language.total_score,
+        totalScore: total_score,
         wordCorrectCount: list.head.value.correct_count,
         wordIncorrectCount: list.head.value.incorrect_count,
         answer: answer.value.translation,
@@ -146,7 +146,7 @@ languageRouter.post("/guess", parser, async (req, res, next) => {
 
       res.status(200).json({
         nextWord: list.head.value.original,
-        totalScore: req.language.total_score,
+        totalScore: total_score,
         wordCorrectCount: list.head.value.correct_count,
         wordIncorrectCount: list.head.value.incorrect_count,
         answer: answer.value.translation,

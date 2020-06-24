@@ -50,7 +50,6 @@ const LanguageService = {
       .from("language")
       .join("word", "word.language_id", "=", "language.id")
       .select("head")
-      .groupBy("head")
       .where({ language_id });
   },
   generateLinkedList(words, head) {
