@@ -50,6 +50,7 @@ languageRouter.get("/head", async (req, res, next) => {
     );
     res.json({
       nextWord: nextWord.original,
+      answer: nextWord.translation,
       totalScore: req.language.total_score,
       wordCorrectCount: nextWord.correct_count,
       wordIncorrectCount: nextWord.incorrect_count,
